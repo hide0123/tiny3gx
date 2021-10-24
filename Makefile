@@ -13,8 +13,6 @@ export DEPSDIR	:= $(CURDIR)/$(BUILD)
 export OFILES	:= $(SRC:.s=.o)
 export LDFLAGS	:= -T $(CURDIR)/3gx.ld -Wl,--gc-sections
 
-.PHONY: $(BUILD)
-
 all: $(BUILD)
 
 $(BUILD):
@@ -29,6 +27,8 @@ re: clean all
 else
 
 $(TARGET): $(OFILES)
+
+.PRECIOUS: %.elf
 
 %.3gx: %.elf
 	@echo creating $@

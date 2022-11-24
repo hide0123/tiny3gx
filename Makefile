@@ -1,6 +1,7 @@
 include $(DEVKITARM)/3ds_rules
 
 TARGET		:= tiny.3gx
+PLGINFO		:= tiny.plgInfo
 BUILD		:= build
 LD			:= $(CC)
 
@@ -30,6 +31,6 @@ $(TARGET): $(OFILES)
 
 %.3gx: %.elf
 	@echo creating $@
-	@3gxtool -d -s $(word 1, $^) /dev/null ../$@
+	@3gxtool -d -s $(word 1, $^) ../$(PLGINFO) ../$@
 
 endif

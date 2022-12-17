@@ -11,7 +11,7 @@ ifneq ($(BUILD),$(notdir $(CURDIR)))
 export VPATH	:= $(CURDIR)
 export DEPSDIR	:= $(CURDIR)/$(BUILD)
 export OFILES	:= $(OFILE)
-export LDFLAGS	:= -T $(CURDIR)/3gx.ld -Wl,--gc-sections
+export LDFLAGS	:= -T $(CURDIR)/3gx.ld -Wl,--gc-sections -nostdlib
 
 all: $(BUILD)
 
